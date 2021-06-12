@@ -3,5 +3,8 @@
 @section('title', 'Главная')
 
 @section('content')
-    <h1>Index</h1>
+    <div class="md:container md:mx-auto px-4 mt-8">
+        <h2 class="text-2xl text-center">Разделы</h2>
+        @include('components.cards')
+    </div>
 @endsection
