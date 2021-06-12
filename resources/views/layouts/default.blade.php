@@ -3,6 +3,8 @@
 @include('components.nav')
 @include('components.breadcrumbs')
 
-<h1>Hello Blade</h1>
+<main class="content flex-grow">
+    @yield('content')
+</main>
 
 @include('layouts.footer')

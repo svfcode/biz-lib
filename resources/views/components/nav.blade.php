@@ -1,5 +1,5 @@
 
-<header>
+<header class="header">
     <nav class="flex bg-gray-100 shadow-lg">
         <div class="nav_logo p-2">
             <h1><a href="/" class="font-bold text-2xl">Libteka</a></h1>

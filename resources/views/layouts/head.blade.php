@@ -9,4 +9,4 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link href="/css/app.css" rel="stylesheet">
 </head>
-<body>
+<body class="flex flex-col h-screen">
