@@ -24,7 +24,7 @@ class PartController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.parts.create');
     }
 
     /**
