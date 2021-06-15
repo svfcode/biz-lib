@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/admin/parts', [PartController::class, 'index']);
+Route::resource('/admin/parts', PartController::class);
