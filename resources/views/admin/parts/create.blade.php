@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Part Admin create')
+@section('title', 'Admin - Part create')
 
 
 
@@ -37,8 +37,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <input type="file" name="image">
+                        <input type="file" name="image"> <br>
                     </td>
+                </tr>
+                <tr>
+                    <td><label for="imgalt">imgalt</label></td>
+                    <td><input type="text" name="imgalt" id="imgalt" class="border rounded p-2"></td>
                 </tr>
                 <tr>
                     <td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Part;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PartController extends Controller
 {
@@ -35,16 +36,31 @@ class PartController extends Controller
      */
     public function store(Request $request)
     {
-        // $test = $request->validate([
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
         $rules = [
+            'title' => 'required',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'slug' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imgalt' => 'required',
         ];
 
-        dd($this->validate($request, $rules));
+        $valideted = $this->validate($request, $rules);
 
-        dd($request);
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('img/parts'), $imageName);
+
+        DB::insert('insert into parts (title, subtitle, description, slug, img, imgalt) values (?, ?, ?, ?, ?, ?)',
+            [
+                $valideted['title'],
+                $valideted['subtitle'],
+                $valideted['description'],
+                $valideted['slug'],
+                $imageName,
+                $valideted['imgalt'],
+            ]);
+
+        return redirect('/admin/parts');
     }
 
     /**
