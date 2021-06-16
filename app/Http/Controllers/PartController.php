@@ -15,7 +15,9 @@ class PartController extends Controller
      */
     public function index()
     {
-        return view('admin.parts.index');
+        $parts = DB::table('parts')->get();
+
+        return view('admin.parts.index', compact('parts'));
     }
 
     /**

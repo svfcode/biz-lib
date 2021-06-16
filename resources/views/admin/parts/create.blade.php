@@ -2,8 +2,6 @@
 
 @section('title', 'Admin - Part create')
 
-
-
 @section('content')
 
     <div class="md:container md:mx-auto px-4 mt-8">
