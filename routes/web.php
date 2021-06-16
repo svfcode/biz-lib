@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PartController;
+use App\Http\Controllers\AdminPartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,6 @@ use App\Http\Controllers\PartController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [PartController::class, 'index']);
 
-Route::resource('/admin/parts', PartController::class);
+Route::resource('/admin/parts', AdminPartController::class);
