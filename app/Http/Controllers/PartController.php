@@ -35,7 +35,16 @@ class PartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $test = $request->validate([
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
+        $rules = [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ];
+
+        dd($this->validate($request, $rules));
+
+        dd($request);
     }
 
     /**
