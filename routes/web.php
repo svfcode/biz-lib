@@ -18,4 +18,5 @@ use App\Http\Controllers\AdminPartController;
 
 Route::get('/', [PartController::class, 'index']);
 
-Route::resource('/admin/parts', AdminPartController::class);
+Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('part');
+

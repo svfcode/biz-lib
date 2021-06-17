@@ -82,9 +82,10 @@ class AdminPartController extends Controller
      * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function edit(Part $part)
+    public function edit($part)
     {
-        //
+        dd($part);
+        return view('admin.parts.edit');
     }
 
     /**
