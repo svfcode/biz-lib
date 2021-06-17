@@ -16,7 +16,8 @@ class Myauth
      */
     public function handle(Request $request, Closure $next)
     {
-        dd('test');
+        // $currentSession = session();
+        // dd($currentSession);
         return $next($request);
     }
 }
