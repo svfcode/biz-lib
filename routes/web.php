@@ -18,5 +18,5 @@ use App\Http\Controllers\AdminPartController;
 
 Route::get('/', [PartController::class, 'index']);
 
-Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('part');
+Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('part')->middleware('myauth');
 
