@@ -30,11 +30,6 @@
                             Update
                         </div>
                     </a>
-                    {{-- <a href="/admin/parts/part">
-                        <div class="border-2 border-red-600 rounded-lg px-3 py-2 text-red-400 cursor-pointer hover:bg-red-600 hover:text-red-200">
-                            Delete
-                        </div>
-                    </a> --}}
                 </div>
 
             </div>

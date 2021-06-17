@@ -71,9 +71,9 @@ class AdminPartController extends Controller
      * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function show(Part $part)
+    public function show($part)
     {
-        //
+        dd($part);
     }
 
     /**
@@ -82,10 +82,10 @@ class AdminPartController extends Controller
      * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function edit($part)
+    public function edit($partTitle)
     {
-        dd($part);
-        return view('admin.parts.edit');
+        $part = DB::table('parts')->where('slug', '=', $partTitle)->first();
+        return view('admin.parts.edit', compact('part'));
     }
 
     /**
@@ -95,9 +95,30 @@ class AdminPartController extends Controller
      * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Part $part)
+    public function update(Request $request, $part)
     {
-        //
+
+        $rules = [
+            'title' => 'required',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'slug' => 'required',
+            'imgalt' => 'required',
+        ];
+
+        $valideted = $this->validate($request, $rules);
+
+        $title = $valideted['title'];
+        $subtitle = $valideted['subtitle'];
+        $description = $valideted['description'];
+        $slug = $valideted['slug'];
+        $imgalt = $valideted['imgalt'];
+
+        DB::update("update parts
+            set title='$title', subtitle='$subtitle', description='$description', slug='$slug', imgalt='$imgalt'
+            where slug='$part'");
+
+        return redirect('/admin/parts');
     }
 
     /**
@@ -106,8 +127,10 @@ class AdminPartController extends Controller
      * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Part $part)
+    public function destroy($part)
     {
-        //
+        DB::delete('delete from parts where slug = ?', [$part]);
+
+        return redirect('/admin/parts');
     }
 }
