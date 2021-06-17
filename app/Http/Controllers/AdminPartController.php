@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Part;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AdminPartController extends Controller
 {
@@ -38,28 +39,32 @@ class AdminPartController extends Controller
      */
     public function store(Request $request)
     {
-        $rules = [
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'subtitle' => 'required',
             'description' => 'required',
             'slug' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'imgalt' => 'required',
-        ];
+        ]);
 
-        $valideted = $this->validate($request, $rules);
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
 
         $imageName = 'parts'.time().'.'.$request->image->extension();
         $request->image->move(public_path('img/parts'), $imageName);
 
         DB::insert('insert into parts (title, subtitle, description, slug, img, imgalt) values (?, ?, ?, ?, ?, ?)',
             [
-                $valideted['title'],
-                $valideted['subtitle'],
-                $valideted['description'],
-                $valideted['slug'],
+                $request->get('title'),
+                $request->get('subtitle'),
+                $request->get('description'),
+                $request->get('slug'),
                 $imageName,
-                $valideted['imgalt'],
+                $request->get('imgalt'),
             ]);
 
         return redirect('/admin/parts');

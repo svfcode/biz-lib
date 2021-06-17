@@ -16,21 +16,21 @@
             <table>
                 <tr>
                     <td><label for="title">title</label></td>
-                    <td><input type="text" name="title" id="title" class="border rounded p-2"></td>
+                    <td><input type="text" name="title" id="title" class="border rounded p-2" value="{{ old('title') }}"></td>
                 </tr>
                 <tr>
                     <td><label for="subtitle">subtitle</label></td>
-                    <td><input type="text" name="subtitle" id="subtitle" class="border rounded p-2"></td>
+                    <td><input type="text" name="subtitle" id="subtitle" class="border rounded p-2" value="{{ old('subtitle') }}"></td>
                 </tr>
                 <tr>
                     <td><label for="slug">slug</label></td>
-                    <td><input type="text" name="slug" id="slug" class="border rounded p-2"></td>
+                    <td><input type="text" name="slug" id="slug" class="border rounded p-2" value="{{ old('slug') }}"></td>
                 </tr>
                 <tr>
                     <td><label for="description" class="mr-2">description</label></td>
                     <td>
                         <textarea name="description" id="description"
-                            cols="50" rows="3" class="border rounded p-2"></textarea>
+                            cols="50" rows="3" class="border rounded p-2">{{ old('description') }}</textarea>
                     </td>
                 </tr>
                 <tr>
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <td><label for="imgalt">imgalt</label></td>
-                    <td><input type="text" name="imgalt" id="imgalt" class="border rounded p-2"></td>
+                    <td><input type="text" name="imgalt" id="imgalt" class="border rounded p-2" value="{{ old('imgalt') }}"></td>
                 </tr>
                 <tr>
                     <td>
