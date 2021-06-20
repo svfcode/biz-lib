@@ -28,5 +28,5 @@ Route::get('/admin/login', [MyauthController::class, 'form']);
 Route::post('/admin/login', [MyauthController::class, 'login']);
 
 Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('part')->middleware('myauth');
-Route::resource('/admin/categories', AdminCategoriesController::class)->whereAlphaNumeric('part')->middleware('myauth');
+Route::resource('/admin/categories', AdminCategoriesController::class)->whereAlphaNumeric('category')->middleware('myauth');
 
