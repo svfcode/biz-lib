@@ -17,8 +17,10 @@ class Myauth
      */
     public function handle(Request $request, Closure $next)
     {
-        
+        if(session('auth')) {
+            return $next($request);
+        }
 
-        return $next($request);
+        return redirect('/admin/login');
     }
 }
