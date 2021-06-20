@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Myauth
 {
@@ -16,8 +17,8 @@ class Myauth
      */
     public function handle(Request $request, Closure $next)
     {
-        // $currentSession = session();
-        // dd($currentSession);
+        
+
         return $next($request);
     }
 }
