@@ -24,7 +24,7 @@ class AdminCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.category.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
