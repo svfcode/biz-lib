@@ -15,6 +15,20 @@
             @csrf
             <table>
                 <tr>
+                    <td><label for="partid">part</label></td>
+                    <td>
+                        <select name="partid" id="partid" class="border rounded p-2">
+                            @foreach ($parts as $part)
+                                @if ($part->id == old('partid'))
+                                    <option value="{{ $part->id }}" selected>{{ $part->title }}</option>
+                                @else
+                                    <option value="{{ $part->id }}">{{ $part->title }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </td>
+                </tr>
+                <tr>
                     <td><label for="title">title</label></td>
                     <td><input type="text" name="title" id="title" class="border rounded p-2" value="{{ old('title') }}"></td>
                 </tr>
