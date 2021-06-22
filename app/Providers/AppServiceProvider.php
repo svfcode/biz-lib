@@ -25,7 +25,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $navigation_parts = DB::select('select title, slug from parts');
+        $navigation_parts = DB::select('select id, title, slug from parts');
         View::share('navigation_parts', $navigation_parts);
+
+        $navigation_cats = DB::select('select title, slug, part_id from categories');
+        View::share('navigation_cats', $navigation_cats);
     }
 }

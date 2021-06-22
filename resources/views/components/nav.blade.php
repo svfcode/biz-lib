@@ -12,7 +12,7 @@
                     <i v-if="isPartSelect" class="material-icons">arrow_drop_up</i>
                     <div v-if="isPartSelect" class="nav_part_menu absolute bg-gray-100 shadow-lg w-full top-8 p-2 flex flex-col">
                         @foreach ($navigation_parts as $part)
-                            <a href="/part/{{ $part->slug }}" class="text-black hover:text-purple-700">{{ $part->title }}</a>
+                            <a href="/parts/{{ $part->slug }}" class="text-black hover:text-purple-700">{{ $part->title }}</a>
                         @endforeach
                     </div>
                 </div>
@@ -23,11 +23,12 @@
                     <i v-if="!isCategorySelect" class="material-icons">arrow_drop_down</i>
                     <i v-if="isCategorySelect" class="material-icons">arrow_drop_up</i>
                     <div v-if="isCategorySelect" class="nav_part_menu absolute bg-gray-100 shadow-lg w-full top-8 p-2 flex flex-col">
-                        <span href="/part/science" class="text-gray-400">Наука</span>
-                        <a href="/category/logic" class="text-black hover:text-purple-700">Логика</a>
                         @foreach ($navigation_parts as $part)
-                            @foreach ($navigation_parts as $part)
-                                <a href="/part/{{ $part->slug }}" class="text-black hover:text-purple-700">{{ $part->title }}</a>
+                            <span class="text-gray-400">{{ $part->title }}</span>
+                            @foreach ($navigation_cats as $cat)
+                                @if ($cat->part_id == $part->id)
+                                    <a href="/parts/{{ $part->slug }}/categories/{{ $cat->slug }}" class="text-black hover:text-purple-700">{{ $cat->title }}</a>
+                                @endif
                             @endforeach
                         @endforeach
                     </div>
