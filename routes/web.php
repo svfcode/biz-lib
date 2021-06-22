@@ -22,7 +22,7 @@ use App\Http\Controllers\MyauthController;
 */
 
 Route::get('/', [PartController::class, 'index']);
-Route::get('/categories', [CategoriesController::class, 'index']);
+Route::get('/parts/{category}', [PartController::class, 'show'])->whereAlphaNumeric('category');
 
 Route::get('/admin/login', [MyauthController::class, 'form']);
 Route::post('/admin/login', [MyauthController::class, 'login']);

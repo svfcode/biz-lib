@@ -54,7 +54,7 @@ class AdminPartController extends Controller
                         ->withInput();
         }
 
-        $imageName = 'parts'.time().'.'.$request->image->extension();
+        $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('img/parts'), $imageName);
 
         DB::insert('insert into parts (title, subtitle, description, slug, img, imgalt) values (?, ?, ?, ?, ?, ?)',
