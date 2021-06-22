@@ -11,7 +11,9 @@
                     <i v-if="!isPartSelect" class="material-icons">arrow_drop_down</i>
                     <i v-if="isPartSelect" class="material-icons">arrow_drop_up</i>
                     <div v-if="isPartSelect" class="nav_part_menu absolute bg-gray-100 shadow-lg w-full top-8 p-2 flex flex-col">
-                        <a href="/part/science" class="text-black hover:text-purple-700">Наука</a>
+                        @foreach ($navigation_parts as $part)
+                            <a href="/part/{{ $part->slug }}" class="text-black hover:text-purple-700">{{ $part->title }}</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -23,6 +25,11 @@
                     <div v-if="isCategorySelect" class="nav_part_menu absolute bg-gray-100 shadow-lg w-full top-8 p-2 flex flex-col">
                         <span href="/part/science" class="text-gray-400">Наука</span>
                         <a href="/category/logic" class="text-black hover:text-purple-700">Логика</a>
+                        @foreach ($navigation_parts as $part)
+                            @foreach ($navigation_parts as $part)
+                                <a href="/part/{{ $part->slug }}" class="text-black hover:text-purple-700">{{ $part->title }}</a>
+                            @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>
