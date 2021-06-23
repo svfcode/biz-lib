@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateBooksTable extends Migration
 {
@@ -15,7 +16,19 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->integer('cat_id');
+            $table->integer('year');
+            $table->string('author');
+            $table->text('book');
+            $table->text('img');
+            $table->string('imgalt');
+            $table->string('title');
+            $table->text('keywords');
+            $table->text('description');
+            $table->string('slug');
+            $table->integer('downloads');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
         });
     }
 
