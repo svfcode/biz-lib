@@ -8,6 +8,9 @@ use App\Http\Controllers\AdminPartController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\AdminCategoriesController;
 
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AdminBookController;
+
 use App\Http\Controllers\MyauthController;
 
 /*
@@ -29,4 +32,5 @@ Route::post('/admin/login', [MyauthController::class, 'login']);
 
 Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('part')->middleware('myauth');
 Route::resource('/admin/categories', AdminCategoriesController::class)->whereAlphaNumeric('category')->middleware('myauth');
+Route::resource('/admin/books', AdminBookController::class)->whereAlphaNumeric('book')->middleware('myauth');
 
