@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AdminBookController extends Controller
 {
@@ -24,7 +26,9 @@ class AdminBookController extends Controller
      */
     public function create()
     {
-        //
+        $parts = DB::select('select id, title from categories');
+
+        return view('admin.book.create', compact('parts'));
     }
 
     /**
@@ -35,7 +39,7 @@ class AdminBookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
