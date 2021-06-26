@@ -50,7 +50,10 @@ class BookController extends Controller
         $book = DB::select('select * from books where slug = ?', [$book]);
         $book = $book[0];
 
-        return view('books.show', compact('book'));
+        $category = DB::select('select title from categories where slug = ?', [$category]);
+        $category = $category[0]->title;
+
+        return view('books.show', compact('book', 'category'));
     }
 
     public function download($part, $category, $book)
