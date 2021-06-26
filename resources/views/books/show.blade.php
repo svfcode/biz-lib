@@ -2,6 +2,9 @@
 
 @section('title', 'Главная')
 
+@section('keywords', $book->keywords)
+@section('description', Illuminate\Support\Str::limit($book->description, 120))
+
 @section('content')
     <div class="md:container md:mx-auto px-4 mt-8">
 
