@@ -4,7 +4,7 @@
 
 
         <div class="book_wrap border shadow rounded p-4 max-w-lg m-auto hover:border-green-500">
-        <a href="{{ Request::path() }}/{{ $book->slug }}">
+        <a href="/{{ Request::path() }}/{{ $book->slug }}">
             <div class="book_name hover:underline">
                 {{ $book->title }}
                 <span class="bg-blue-400 border border-blue-700 p-1 rounded text-sm ml-2">

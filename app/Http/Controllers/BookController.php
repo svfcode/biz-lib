@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -44,9 +45,12 @@ class BookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($part, $category, $book)
     {
-        //
+        $book = DB::select('select * from books where slug = ?', [$book]);
+        $book = $book[0];
+
+        return view('books.show', compact('book'));
     }
 
     /**

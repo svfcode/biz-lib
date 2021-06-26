@@ -57,23 +57,7 @@ class CategoriesController extends Controller
             return redirect('/');
         }
 
-        return view('books.show', compact('cat', 'books'));
-
-        // dd($part, $category);
-        // $part = DB::select('select id, slug from parts where slug = ?', [$part]);
-        // $cat = DB::select('select * from parts where slug = ?', [$part]);
-        // if(count($part) == 0) {
-        //     return redirect('/');
-        // }
-
-        // $partSlug =$part[0]->slug;
-        // $partId = $part[0]->id;
-        // $cats = DB::select('select * from categories where part_id = ?', [$partId]);
-        // if(count($cats) == 0) {
-        //     return redirect('/');
-        // }
-
-        // return view('parts.show', compact('cats', 'partSlug'));
+        return view('books.index', compact('cat', 'books'));
     }
 
     /**
