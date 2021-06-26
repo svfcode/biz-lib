@@ -46,7 +46,7 @@ class AdminBookController extends Controller
             'year' => ['required', 'integer'],
             'keywords' => 'required',
             'description' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'imgalt' => 'required',
             'book' => 'required',
