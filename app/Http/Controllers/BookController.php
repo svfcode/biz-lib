@@ -58,8 +58,6 @@ class BookController extends Controller
         $book = DB::select('select * from books where slug = ?', [$book]);
         $book = $book[0];
 
-        $book->book = substr($book->book, 11);
-
         return view('books.download', compact('book'));
     }
 

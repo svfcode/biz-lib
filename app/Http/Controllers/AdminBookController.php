@@ -41,7 +41,7 @@ class AdminBookController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'partid' => 'required',
-            'title' => 'required',
+            'title' => 'required|unique',
             'author' => 'required',
             'year' => ['required', 'integer'],
             'keywords' => 'required',
@@ -61,7 +61,7 @@ class AdminBookController extends Controller
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('img/books'), $imageName);
 
-        $bookName = time().'.'.$request->book->getClientOriginalName();
+        $bookName = $request->book->getClientOriginalName();
         $request->book->move(public_path('books'), $bookName);
 
         DB::insert('insert into books (cat_id, title, author, year, keywords, description, slug, img, imgalt, book, downloads) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
