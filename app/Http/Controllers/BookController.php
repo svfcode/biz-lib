@@ -53,6 +53,16 @@ class BookController extends Controller
         return view('books.show', compact('book'));
     }
 
+    public function download($part, $category, $book)
+    {
+        $book = DB::select('select * from books where slug = ?', [$book]);
+        $book = $book[0];
+
+        $book->book = substr($book->book, 11);
+
+        return view('books.download', compact('book'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
