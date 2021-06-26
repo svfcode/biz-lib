@@ -14,8 +14,10 @@
                 {{ $book->author }}
             </span>
             <p class="mt-4 flex">
-                <img src="/img/books/{{ $book->img }}" alt="{{ $book->imgalt }}" width="200" class="mr-4 mb-2">
-                {{ $book->description }}
+                <span class="">
+                    <img src="/img/books/{{ $book->img }}" alt="{{ $book->imgalt }}" class="mr-4 mb-2 w-1/2 float-left">
+                    {{ $book->description }}
+                </span>
             </p>
             <div class="book_download">
                 <button
