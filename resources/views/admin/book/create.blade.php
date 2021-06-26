@@ -15,7 +15,7 @@
             @csrf
             <table>
                 <tr>
-                    <td><label for="partid">part</label></td>
+                    <td><label for="partid">category</label></td>
                     <td>
                         <select name="partid" id="partid" class="border rounded p-2">
                             @foreach ($parts as $part)
@@ -33,8 +33,16 @@
                     <td><input type="text" name="title" id="title" class="border rounded p-2" value="{{ old('title') }}"></td>
                 </tr>
                 <tr>
-                    <td><label for="subtitle">subtitle</label></td>
-                    <td><input type="text" name="subtitle" id="subtitle" class="border rounded p-2" value="{{ old('subtitle') }}"></td>
+                    <td><label for="author">author</label></td>
+                    <td><input type="text" name="author" id="author" class="border rounded p-2" value="{{ old('author') }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="year">year</label></td>
+                    <td><input type="number" name="year" id="year" class="border rounded p-2" value="{{ old('year') }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="keywords">key words</label></td>
+                    <td><input type="text" name="keywords" id="keywords" class="border rounded p-2" value="{{ old('keywords') }}"></td>
                 </tr>
                 <tr>
                     <td><label for="slug">slug</label></td>
@@ -48,13 +56,20 @@
                     </td>
                 </tr>
                 <tr>
+                    <td><label for="image">image</label></td>
                     <td>
-                        <input type="file" name="image"> <br>
+                        <input type="file" name="image" id="image"> <br>
                     </td>
                 </tr>
                 <tr>
                     <td><label for="imgalt">imgalt</label></td>
                     <td><input type="text" name="imgalt" id="imgalt" class="border rounded p-2" value="{{ old('imgalt') }}"></td>
+                </tr>
+                <tr>
+                    <td><label for="book">book</label></td>
+                    <td>
+                        <input type="file" name="book" id="book"> <br>
+                    </td>
                 </tr>
                 <tr>
                     <td>

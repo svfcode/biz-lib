@@ -39,7 +39,47 @@ class AdminBookController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $validator = Validator::make($request->all(), [
+            'partid' => 'required',
+            'title' => 'required',
+            'author' => 'required',
+            'year' => ['required', 'integer'],
+            'keywords' => 'required',
+            'description' => 'required',
+            'slug' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imgalt' => 'required',
+            'book' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('img/books'), $imageName);
+
+        $bookName = time().'.'.$request->book->getClientOriginalName();
+        $request->book->move(public_path('books'), $bookName);
+
+        DB::insert('insert into books (cat_id, title, author, year, keywords, description, slug, img, imgalt, book, downloads) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+            [
+                $request->get('partid'),
+                $request->get('title'),
+                $request->get('author'),
+                $request->get('year'),
+                $request->get('keywords'),
+                $request->get('description'),
+                $request->get('slug'),
+                $imageName,
+                $request->get('imgalt'),
+                $bookName,
+                0
+            ]);
+
+        return redirect('/admin/parts');
     }
 
     /**
