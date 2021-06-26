@@ -41,12 +41,12 @@ class AdminBookController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'partid' => 'required',
-            'title' => 'required|unique',
+            'title' => 'required|unique:books',
             'author' => 'required',
             'year' => ['required', 'integer'],
             'keywords' => 'required',
             'description' => 'required',
-            'slug' => 'required|unique',
+            'slug' => 'required|unique:books',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'imgalt' => 'required',
             'book' => 'required',
