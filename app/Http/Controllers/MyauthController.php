@@ -26,7 +26,7 @@ class MyauthController extends Controller
         }
 
         $name = $request->get('name');
-        $password = $request->get('password');
+        $password = md5($request->get('password'));
 
         $authData = DB::select('select * from myauth where name = ? and password = ?', [$name, $password]);
 
