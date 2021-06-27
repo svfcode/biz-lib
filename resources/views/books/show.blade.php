@@ -9,7 +9,7 @@
     <div class="md:container md:mx-auto px-4 mt-8">
 
         <div class="book_show max-w-2xl m-auto mt-4" itemscope itemtype="https://schema.org/Book">
-            <h2 class="text-2xl text-center my-2" itemprop="name"> {{ $book->title }} </h2>
+            <h1 class="text-2xl text-center my-2" itemprop="name"> {{ $book->title }} </h1>
             <span class="bg-blue-400 border border-blue-700 p-1 rounded text-sm ml-2">
                 {{ $book->year }}
             </span>

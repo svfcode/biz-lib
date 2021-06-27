@@ -18,19 +18,20 @@ class PartController extends Controller
 
     public function show($id)
     {
-        $part = DB::select('select id, slug from parts where slug = ?', [$id]);
+        $part = DB::select('select id, slug, title from parts where slug = ?', [$id]);
         if(count($part) == 0) {
             return redirect('/');
         }
 
-        $partSlug =$part[0]->slug;
+        $partSlug = $part[0]->slug;
+        $partTitle = $part[0]->title;
         $partId = $part[0]->id;
         $cats = DB::select('select * from categories where part_id = ?', [$partId]);
         if(count($cats) == 0) {
             return redirect('/');
         }
 
-        return view('parts.show', compact('cats', 'partSlug'));
+        return view('parts.show', compact('cats', 'partSlug', 'partTitle'));
     }
 
 }
