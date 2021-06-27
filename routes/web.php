@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Spatie\Sitemap\SitemapGenerator;
+
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\AdminPartController;
 
@@ -37,3 +39,8 @@ Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('
 Route::resource('/admin/categories', AdminCategoriesController::class)->whereAlphaNumeric('category')->middleware('myauth');
 Route::resource('/admin/books', AdminBookController::class)->whereAlphaNumeric('book')->middleware('myauth');
 
+Route::get('/admin/sitemap', function() {
+    SitemapGenerator::create('https://libteka.ru/')->writeToFile('sitemap.xml');
+
+    return 'sitemap created';
+})->middleware('myauth');
