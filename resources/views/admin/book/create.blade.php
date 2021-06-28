@@ -45,10 +45,6 @@
                     <td><input type="text" name="keywords" id="keywords" class="border rounded p-2" value="{{ old('keywords') }}"></td>
                 </tr>
                 <tr>
-                    <td><label for="slug">slug</label></td>
-                    <td><input type="text" name="slug" id="slug" class="border rounded p-2" value="{{ old('slug') }}"></td>
-                </tr>
-                <tr>
                     <td><label for="description" class="mr-2">description</label></td>
                     <td>
                         <textarea name="description" id="description"

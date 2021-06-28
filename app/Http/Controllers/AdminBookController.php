@@ -6,6 +6,7 @@ use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AdminBookController extends Controller
 {
@@ -46,7 +47,6 @@ class AdminBookController extends Controller
             'year' => ['required', 'integer'],
             'keywords' => 'required',
             'description' => 'required',
-            'slug' => 'required|unique:books',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'imgalt' => 'required',
             'book' => 'required',
@@ -57,6 +57,8 @@ class AdminBookController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
+
+        $slug = Str::slug($request->get('title'), '-');
 
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('img/books'), $imageName);
@@ -72,7 +74,7 @@ class AdminBookController extends Controller
                 $request->get('year'),
                 $request->get('keywords'),
                 $request->get('description'),
-                $request->get('slug'),
+                $slug,
                 $imageName,
                 $request->get('imgalt'),
                 $bookName,
