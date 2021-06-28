@@ -61,6 +61,10 @@ class BookController extends Controller
         $book = DB::select('select * from books where slug = ?', [$book]);
         $book = $book[0];
 
+        $downloads = $book->downloads;
+        $downloads += 1;
+        DB::update('update books set downloads = ? where id = ?', [$downloads, $book->id]);
+
         return view('books.download', compact('book'));
     }
 

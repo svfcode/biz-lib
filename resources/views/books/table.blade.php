@@ -1,4 +1,4 @@
-<div class="book_table_wrap my-8 flex">
+<div class="book_table_wrap my-8 flex flex-wrap">
 
     @foreach ($books as $book)
 
