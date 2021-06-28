@@ -1,8 +1,8 @@
 @extends('layouts.default')
 
 @section('title', "$book->title")
-@section('keywords', "$cat->title, книги, скачать")
-@section('description', "Книги по теме $cat->title")
+@section('keywords', "$book->title, $category книги, скачать")
+@section('description', "Книги по теме $category")
 
 @section('keywords', $book->keywords)
 @section('description', Illuminate\Support\Str::limit($book->description, 120))
