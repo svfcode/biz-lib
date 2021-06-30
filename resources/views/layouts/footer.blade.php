@@ -4,7 +4,7 @@
         {{-- <a href="/forauthor">Для правообладателей</a> --}}
         {{-- <a href="/forbook">Какими программы открывать книги</a> --}}
     </div>
-    <a href="klimovcode.online" class="text-gray-200 hover:text-gray-700">KlimovCode</a>
+    <a href="http://klimovcode.online" class="text-gray-200 hover:text-gray-700">KlimovCode</a>
 </div>
 
 </body>
