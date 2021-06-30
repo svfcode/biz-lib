@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="keywords" content="@yield('keywords', 'лучшие книги')">
     <meta name="description" content="@yield('description', 'Сайт с подборками книг для развития по темам')">
+    @yield('noindex')
     <title>Libteka.ru | @yield('title', 'Твой путь в развитии')</title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

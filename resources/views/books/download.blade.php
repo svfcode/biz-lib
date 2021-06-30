@@ -3,6 +3,9 @@
 @section('title', "Скачать $book->title")
 @section('keywords', "скачать, download, pdf, fb2,  $book->title , $book->author")
 @section('description', "Здесь можно скачать '.$book->title")
+@section('noindex')
+    <meta name="robots" content="noindex">
+@endsection
 
 @section('content')
     <div class="md:container md:mx-auto px-4 mt-8">
