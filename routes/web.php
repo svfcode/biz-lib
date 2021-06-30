@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 
 use Spatie\Sitemap\SitemapGenerator;
-use Spatie\Sitemap\Tags\Url;
-use Spatie\Crawler\Crawler;
 use Psr\Http\Message\UriInterface;
 
 use App\Http\Controllers\PartController;
@@ -43,20 +41,13 @@ Route::resource('/admin/categories', AdminCategoriesController::class)->whereAlp
 Route::resource('/admin/books', AdminBookController::class)->whereAlphaNumeric('book')->middleware('myauth');
 
 Route::get('/admin/sitemap', function() {
-    SitemapGenerator::create('http://biz-lib')
+    SitemapGenerator::create('https://libteka.ru')
     ->shouldCrawl(function (UriInterface $url) {
         // All pages will be crawled, except the contact page.
         // Links present on the contact page won't be added to the
         // sitemap unless they are present on a crawlable page.
 
-        return strpos($url->getPath(), '/download') === false;
-    })
-    ->shouldCrawl(function (UriInterface $url) {
-        // All pages will be crawled, except the contact page.
-        // Links present on the contact page won't be added to the
-        // sitemap unless they are present on a crawlable page.
-
-        return strpos($url->getPath(), '/books') === false;
+        return strpos($url->getPath(), '/download') === false && strpos($url->getPath(), '/books') === false;
     })
     ->writeToFile('sitemap.xml');
 
