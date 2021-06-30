@@ -20,6 +20,11 @@
             book create
         </div>
     </a>
+    <a href="/admin/sitemap">
+        <div class="border-2 border-green-600 rounded-lg px-3 py-2 text-green-400 cursor-pointer hover:bg-green-600 hover:text-green-200">
+            create sitemap
+        </div>
+    </a>
 </div>
 
 
