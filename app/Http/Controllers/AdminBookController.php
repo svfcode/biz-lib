@@ -63,7 +63,7 @@ class AdminBookController extends Controller
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('img/books'), $imageName);
 
-        $bookName = $request->book->getClientOriginalName();
+        $bookName = $slug . '.' . $request->book->getClientOriginalExtension();
         $request->book->move(public_path('books'), $bookName);
 
         DB::insert('insert into books (cat_id, title, author, year, keywords, description, slug, img, imgalt, book, downloads) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
