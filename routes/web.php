@@ -38,7 +38,7 @@ Route::post('/admin/login', [MyauthController::class, 'login']);
 
 Route::resource('/admin/parts', AdminPartController::class)->whereAlphaNumeric('part')->middleware('myauth');
 Route::resource('/admin/categories', AdminCategoriesController::class)->whereAlphaNumeric('category')->middleware('myauth');
-Route::resource('/admin/books', AdminBookController::class)->whereAlphaNumeric('book')->middleware('myauth');
+Route::resource('/admin/books', AdminBookController::class)->where(['book' => '[A-Za-z0-9-]+'])->middleware('myauth');
 
 Route::get('/admin/sitemap', function() {
     SitemapGenerator::create('https://libteka.ru')

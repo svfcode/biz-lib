@@ -90,9 +90,9 @@ class AdminBookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(Book $book)
+    public function show($book)
     {
-        //
+        //dd($book);
     }
 
     /**
@@ -101,9 +101,14 @@ class AdminBookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function edit(Book $book)
+    public function edit($book)
     {
-        //
+        $parts = DB::select('select id, title from categories');
+
+        $book = DB::select('select * from books where slug = ?', [$book]);
+        $book = $book[0];
+
+        return view('admin.book.edit', compact('parts', 'book'));
     }
 
     /**
@@ -113,9 +118,29 @@ class AdminBookController extends Controller
      * @param  \App\Models\Book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $book)
     {
-        //
+        $rules = [
+            'partid' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'author' => 'required',
+            'year' => 'required',
+        ];
+
+        $valideted = $this->validate($request, $rules);
+
+        $partid = $valideted['partid'];
+        $title = $valideted['title'];
+        $description = $valideted['description'];
+        $author = $valideted['author'];
+        $year = $valideted['year'];
+
+        DB::update("update books
+            set title='$title', cat_id='$partid', description='$description', author='$author', year='$year'
+            where slug='$book'");
+
+        return redirect('/admin/parts');
     }
 
     /**

@@ -78,9 +78,20 @@ class AdminCategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(Categories $categories)
+    public function show($category)
     {
-        //
+        $cat = DB::select('select id, slug, title from categories where slug = ?', [$category]);
+        if(count($cat) == 0) {
+            return redirect('/');
+        }
+        $cat = $cat[0];
+
+        $books = DB::select('select * from books where cat_id = ?', [$cat->id]);
+        if(count($books) == 0) {
+            return redirect('/');
+        }
+
+        return view('admin.book.index', compact('cat', 'books'));
     }
 
     /**

@@ -3,7 +3,7 @@
 
         @foreach ($parts as $part)
             <div class="card_item w-full max-w-sm rounded-xl border border-gray-100 shadow-lg m-4">
-                <a href="/admin/parts/{{ $partSlug }}/categories/{{ $part->slug }}">
+                <a href="/admin/categories/{{ $part->slug }}">
                     <div class="card_img">
                         <img class="object-cover" src="/img/categories/{{ $part->img }}" alt="{{ $part->imgalt }}">
                     </div>
