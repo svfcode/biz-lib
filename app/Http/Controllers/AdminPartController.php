@@ -76,9 +76,22 @@ class AdminPartController extends Controller
      * @param  \App\Models\Part  $part
      * @return \Illuminate\Http\Response
      */
-    public function show($part)
+    public function show($id)
     {
-        dd($part);
+        $part = DB::select('select id, slug, title from parts where slug = ?', [$id]);
+        if(count($part) == 0) {
+            return redirect('/');
+        }
+
+        $partSlug = $part[0]->slug;
+        $partTitle = $part[0]->title;
+        $partId = $part[0]->id;
+        $cats = DB::select('select * from categories where part_id = ?', [$partId]);
+        if(count($cats) == 0) {
+            return redirect('/');
+        }
+
+        return view('admin.parts.show', compact('cats', 'partSlug', 'partTitle'));
     }
 
     /**
