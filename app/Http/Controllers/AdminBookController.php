@@ -45,10 +45,8 @@ class AdminBookController extends Controller
             'title' => 'required|unique:books',
             'author' => 'required',
             'year' => ['required', 'integer'],
-            'keywords' => 'required',
             'description' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'imgalt' => 'required',
             'book' => 'required',
         ]);
 
@@ -59,6 +57,8 @@ class AdminBookController extends Controller
         }
 
         $slug = Str::slug($request->get('title'), '-');
+        $keywords = $request->get('title') . ', ' . $request->get('author');
+        $imgalt = 'Обложка книги ' . $request->get('title');
 
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('img/books'), $imageName);
@@ -72,11 +72,11 @@ class AdminBookController extends Controller
                 $request->get('title'),
                 $request->get('author'),
                 $request->get('year'),
-                $request->get('keywords'),
+                $keywords,
                 $request->get('description'),
                 $slug,
                 $imageName,
-                $request->get('imgalt'),
+                $imgalt,
                 $bookName,
                 0
             ]);

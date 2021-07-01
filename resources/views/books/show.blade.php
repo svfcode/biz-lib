@@ -1,10 +1,9 @@
 @extends('layouts.default')
 
 @section('title', "$book->title")
-@section('keywords', "$book->title, $category книги, скачать")
-@section('description', "Книги по теме $category")
+{{-- @section('keywords', "$book->title, $category, книги, скачать") --}}
 
-@section('keywords', $book->keywords)
+@section('keywords', "$book->keywords, $category, книги, скачать")
 @section('description', Illuminate\Support\Str::limit($book->description, 120))
 
 @section('content')

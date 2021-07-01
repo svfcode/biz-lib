@@ -41,10 +41,6 @@
                     <td><input type="number" name="year" id="year" class="border rounded p-2" value="{{ old('year') }}"></td>
                 </tr>
                 <tr>
-                    <td><label for="keywords">key words</label></td>
-                    <td><input type="text" name="keywords" id="keywords" class="border rounded p-2" value="{{ old('keywords') }}"></td>
-                </tr>
-                <tr>
                     <td><label for="description" class="mr-2">description</label></td>
                     <td>
                         <textarea name="description" id="description"
@@ -56,10 +52,6 @@
                     <td>
                         <input type="file" name="image" id="image"> <br>
                     </td>
-                </tr>
-                <tr>
-                    <td><label for="imgalt">imgalt</label></td>
-                    <td><input type="text" name="imgalt" id="imgalt" class="border rounded p-2" value="{{ old('imgalt') }}"></td>
                 </tr>
                 <tr>
                     <td><label for="book">book</label></td>
