@@ -8,7 +8,7 @@
     <meta name="description" content="@yield('description', 'Сайт с подборками книг для развития по темам')">
     @yield('noindex')
     <title>Libteka.ru | @yield('title', 'Твой путь в развитии')</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="https://libteka.ru/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link href="/css/app.css?v=1" rel="stylesheet">
