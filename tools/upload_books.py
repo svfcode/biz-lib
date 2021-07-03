@@ -1,7 +1,7 @@
 import parse3 as parser
 import addbook
 
-id = 136049
+id = 165821
 categories = ['Логика', 'Воспитание детей', 'Питание']
 
 book = parser.get_book(id)

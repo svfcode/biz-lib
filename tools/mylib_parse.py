@@ -49,6 +49,10 @@ def getText(bookId):
     last_name = soup.find('last-name').text
     author = f'{first_name} {middle_name} {last_name}'
 
+    # Check title contains author name
+    if not (first_name in title or middle_name in title or last_name in title):
+        title = title + ' - ' + author
+
     slug = slugify(title)
 
     return {

@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+import os
 
 
 browser = webdriver.Chrome('C:\drivers\chromedriver.exe')
@@ -52,5 +53,28 @@ def add_book(category, book):
     select.select_by_visible_text(category)
 
     # Write text
-    
+    input_title = '/html/body/main/div/form/table/tbody/tr[2]/td[2]/input'
+    expectect_element(input_title)
+    browser.find_element_by_xpath(input_title).send_keys(book['text']['title'])
 
+    input_author = '/html/body/main/div/form/table/tbody/tr[3]/td[2]/input'
+    expectect_element(input_author)
+    browser.find_element_by_xpath(input_author).send_keys(book['text']['author'])
+
+    input_year = '/html/body/main/div/form/table/tbody/tr[4]/td[2]/input'
+    expectect_element(input_year)
+    browser.find_element_by_xpath(input_year).send_keys(book['text']['year'])
+
+    input_description = '/html/body/main/div/form/table/tbody/tr[5]/td[2]/textarea'
+    expectect_element(input_description)
+    browser.find_element_by_xpath(input_description).send_keys(book['text']['description'])
+
+    # Write image
+    input_img = '/html/body/main/div/form/table/tbody/tr[6]/td[2]/input'
+    expectect_element(input_img)
+    browser.find_element_by_xpath(input_img).send_keys(os.getcwd()+f"/images/{book['img']}")
+
+    # Write book
+    input_book = '/html/body/main/div/form/table/tbody/tr[7]/td[2]/input'
+    expectect_element(input_book)
+    browser.find_element_by_xpath(input_book).send_keys(os.getcwd()+f"/books/{book['book']}")
