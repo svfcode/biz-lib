@@ -4,6 +4,8 @@
 @section('description', 'Книги для образования сгруппированные по разделам')
 
 @section('content')
+    @include('components.metrika')
+
     <div class="md:container md:mx-auto px-4 mt-8">
         <h1 class="text-2xl text-center">Все книги по разделам</h1>
         @include('parts.cards', [$parts])

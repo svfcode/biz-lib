@@ -8,6 +8,8 @@
 @endsection
 
 @section('content')
+    @include('components.metrika')
+
     <div class="md:container md:mx-auto px-4 mt-8">
 
         <div class="book_show max-w-2xl m-auto mt-32">
