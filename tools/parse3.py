@@ -1,14 +1,16 @@
 import mylib_parse as parse
 
-def get_book(id):
-    text = parse.getText(id)
-    print(text)
+def get_book_id(url):
+    return
 
-    img = parse.getImg(id, text)
-    print(img)
+def get_book(url):
+    id = parse.getBookId(url)
+
+    text = parse.getText(id)
+
+    img = parse.getImg(url, text)
 
     book = parse.getBook(id, text)
-    print(book)
 
     return {
         'text': text,

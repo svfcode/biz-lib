@@ -69,14 +69,19 @@ def getText(bookId):
 #--------------------------------------------------------------------------------------------------------
 # Get image
 #--------------------------------------------------------------------------------------------------------
-def getImg(bookId, text):
+def getImg(bookUrl, text):
 
     session = get_tor_session()
 
-    url = f'http://flibustahezeous3.onion/i/49/{bookId}/cover.jpg'
-    print("Getting image from ...", url)
-    response = session.get(url)
+    print("Getting image from ...", bookUrl)
+    response = session.get(bookUrl)
     print(response) # <Response [200]>
+
+    soup = BeautifulSoup(response.content, 'lxml')
+    img = soup.find('img', alt='Cover image')['src']
+    url = 'http://flibustahezeous3.onion' + img
+
+    response = session.get(url)
     open(f'images/{text["slug"]}.jpg', 'wb').write(response.content)
 
     return f'{text["slug"]}.jpg'
@@ -101,14 +106,6 @@ def getBook(bookId, text):
 #--------------------------------------------------------------------------------------------------------
 # Prepare links
 #--------------------------------------------------------------------------------------------------------
-def getBooksId(urls):
-    ids = []
-
-    url = 'http://flibustahezeous3.onion/b/165821'
-
-
-
-    # for url in urls:
-
-
+def getBookId(url):
+    return re.search('(\d)+$', url).group(0)
 #--------------------------------------------------------------------------------------------------------

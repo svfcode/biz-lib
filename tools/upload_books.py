@@ -1,10 +1,19 @@
 import parse3 as parser
 import addbook
 
-id = 165821
+
+urls = [
+    'http://flibustahezeous3.onion/b/165821',
+    'http://flibustahezeous3.onion/b/136049',
+    'http://flibustahezeous3.onion/b/495660'
+]
+
 categories = ['Логика', 'Воспитание детей', 'Питание']
 
-book = parser.get_book(id)
+addbook.get_auth()
 
-addbook.upload_book(categories[0], book)
+for url in urls:
+    book = parser.get_book(url)
+    addbook.upload_book(categories[0], book)
 
+addbook.close_window()

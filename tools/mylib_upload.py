@@ -5,6 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 import os
+import time
 
 
 browser = webdriver.Chrome('C:\drivers\chromedriver.exe')
@@ -78,3 +79,14 @@ def add_book(category, book):
     input_book = '/html/body/main/div/form/table/tbody/tr[7]/td[2]/input'
     expectect_element(input_book)
     browser.find_element_by_xpath(input_book).send_keys(os.getcwd()+f"/books/{book['book']}")
+
+    # Click save button
+    save_book_btn = '/html/body/main/div/form/table/tbody/tr[8]/td/button'
+    expectect_element(save_book_btn)
+    browser.find_element_by_xpath(save_book_btn).click()
+
+    time.sleep(1)
+
+def closeWindow():
+    browser.close()
+    browser.quit()
