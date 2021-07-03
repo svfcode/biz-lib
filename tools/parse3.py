@@ -1,14 +1,20 @@
-import mylib
+import mylib_parse as parse
 
+def get_book(id):
+    text = parse.getText(id)
+    print(text)
 
-text = mylib.getText(136049)
-print(text)
+    img = parse.getImg(id, text)
+    print(img)
 
-img = mylib.getImg(136049, text)
-print(img)
+    book = parse.getBook(id, text)
+    print(book)
 
-book = mylib.getBook(136049, text)
-print(book)
+    return {
+        'text': text,
+        'img': img,
+        'book': book
+    }
 
 
 
