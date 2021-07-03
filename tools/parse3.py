@@ -1,11 +1,14 @@
 import mylib
 
 
-# mylib.getText(136049)
+text = mylib.getText(136049)
+print(text)
 
-# mylib.getImg(136049)
+img = mylib.getImg(136049, text)
+print(img)
 
-mylib.getBook(136049)
+book = mylib.getBook(136049, text)
+print(book)
 
 
 

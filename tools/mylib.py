@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+from slugify import slugify
 
 #-------------------------------------------------------------------------------------------------------
 # Get session through proxy
@@ -47,15 +48,23 @@ def getText(bookId):
     middle_name = soup.find('middle-name').text
     last_name = soup.find('last-name').text
     author = f'{first_name} {middle_name} {last_name}'
-    print(title, year, author)
-    print(description)
+
+    slug = slugify(title)
+
+    return {
+        'title': title,
+        'year': year,
+        'author': author,
+        'description': description,
+        'slug': slug
+    }
 #--------------------------------------------------------------------------------------------------------
 
 
 #--------------------------------------------------------------------------------------------------------
 # Get image
 #--------------------------------------------------------------------------------------------------------
-def getImg(bookId):
+def getImg(bookId, text):
 
     session = get_tor_session()
 
@@ -63,13 +72,15 @@ def getImg(bookId):
     print("Getting image from ...", url)
     response = session.get(url)
     print(response) # <Response [200]>
-    open('test.jpg', 'wb').write(response.content)
+    open(f'images/{text["slug"]}.jpg', 'wb').write(response.content)
+
+    return f'{text["slug"]}.jpg'
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------
 # Get image
 #--------------------------------------------------------------------------------------------------------
-def getBook(bookId):
+def getBook(bookId, text):
 
     session = get_tor_session()
 
@@ -77,5 +88,7 @@ def getBook(bookId):
     print("Getting book from ...", url)
     response = session.get(url)
     print(response) # <Response [200]>
-    open('test.fb2', 'wb').write(response.content)
+    open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
+
+    return f'{text["slug"]}.fb2'
 #--------------------------------------------------------------------------------------------------------
