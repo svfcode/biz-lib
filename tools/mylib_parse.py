@@ -20,49 +20,44 @@ def get_tor_session():
 #--------------------------------------------------------------------------------------------------------
 # Get text from fb2 info block
 #--------------------------------------------------------------------------------------------------------
-def getText(bookId):
+def getText(url):
 
     session = get_tor_session()
 
-    url = f'http://flibustahezeous3.onion/ajaxro/book?op=getFB2Info&b={bookId}&async=true'
-    print("Getting fb2 info ...", url)
+    print("Getting info ...", url)
     response = session.get(url)
     print(response) # <Response [200]>
 
     soup = BeautifulSoup(response.content, 'lxml')
-    p = soup.p
-    my_p = p.string
-    myjson = json.loads(my_p)
-    text = myjson['data']
-    text = text.replace('&lt;','<')
-    text = text.replace('&gt;','>')
-    text = text.replace('&quot;','"')
-    # print(text) # rus text
 
-    soup = BeautifulSoup(text, 'lxml')
+    title = soup.find('h1', {'class': 'title'}).text
+    title_extension = re.search('\([\w]+\)$', title).group(0)
+    title = title[:-len(title_extension)]
 
-    year = soup.year.text
-    title = soup.find('book-name').text if soup.find('book-name') else soup.find('book-title').text
-    description = soup.find('annotation').text.strip()
+    author = soup.find('h1', {'class': 'title'}).findNext('a').text
 
-    first_name = soup.find('first-name').text
-    middle_name = soup.find('middle-name').text
-    last_name = soup.find('last-name').text
-    author = f'{first_name} {middle_name} {last_name}'
+    year = re.search('издание ([\d]+)', soup.text).group(0)
+    year = re.search('(\d)+', year).group(0)
 
-    # Check title contains author name
-    if not (first_name in title or middle_name in title or last_name in title):
+    description = soup.find(text="Аннотация").findNext('p').text
+
+    # # Check title contains author name
+    authorFIO = author.split()
+    if not (authorFIO[0] in title or authorFIO[1] in title or authorFIO[2] in title):
         title = title + ' - ' + author
 
     slug = slugify(title)
 
-    return {
+    print({
         'title': title,
         'year': year,
         'author': author,
         'description': description,
         'slug': slug
-    }
+    })
+getText('http://flibustahezeous3.onion/b/441100')
+getText('http://flibustahezeous3.onion/b/453782')
+getText('http://flibustahezeous3.onion/b/454204')
 #--------------------------------------------------------------------------------------------------------
 
 

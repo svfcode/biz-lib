@@ -6,11 +6,11 @@ def get_book_id(url):
 def get_book(url):
     id = parse.getBookId(url)
 
-    text = parse.getText(id)
+    text = parse.getText(url)
 
     img = parse.getImg(url, text)
 
-    book = parse.getBook(id, text)
+    book = parse.getBook(url, text)
 
     return {
         'text': text,
