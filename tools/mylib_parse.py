@@ -104,13 +104,6 @@ def getBook(url, text):
         url = 'http://flibustahezeous3.onion' + link['href']
         response = session.get(url)
         open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
-
-text = {
-    'slug': 'test'
-}
-getBook('http://flibustahezeous3.onion/b/441100', text)
-getBook('http://flibustahezeous3.onion/b/453782', text)
-getBook('http://flibustahezeous3.onion/b/454204', text)
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------

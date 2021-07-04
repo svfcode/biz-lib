@@ -10,11 +10,6 @@ window.geometry('800x650')
 
 window.title("Добро пожаловать в приложение PythonRu")
 
-# combo = Combobox(window)
-# combo['values'] = (1, 2, 3, 4, 5, "Текст")
-# combo.current(1)  # установите вариант по умолчанию
-# combo.grid(column=0, row=0)
-
 lbl = Label(window, text="Привет", font=("Arial Bold", 50), bg="black", fg="red")
 lbl.grid(column=0, row=0)
 
