@@ -17,6 +17,7 @@ def show_window():
         for el in list_lbls:
             el.destroy()
 
+        show_interface()
         print_urls()
 
 
@@ -24,7 +25,7 @@ def show_window():
 
         i = 2
         for url in urls:
-            lbl = Label(window, text=url, font=("Verdana", 10), name=url)
+            lbl = Label(window, text=url, font=("Verdana", 10))
             lbl.grid(column=0, row=i)
             btn = Button(window, width=10, text="delete", font=("Verdana", 10),
                 command=lambda m=url: delete_url(m))

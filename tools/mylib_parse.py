@@ -40,22 +40,31 @@ def getText(url):
     year = re.search('издание ([\d]+)', soup.text).group(0)
     year = re.search('(\d)+', year).group(0)
 
-    description = soup.find(text="Аннотация").findNext('p').text
+    description = ''
+    description_first_p = soup.find(text="Аннотация").findNext('p')
+    description_all_p = description_first_p.find_next_siblings('p')
+    description += description_first_p.text
+    for p in description_all_p:
+        description += p.text
 
-    # # Check title contains author name
+    # Check title contains author name
     authorFIO = author.split()
-    if not (authorFIO[0] in title or authorFIO[1] in title or authorFIO[2] in title):
+    is_title_contain_fio = False
+    for el in authorFIO:
+        if el in title: is_title_contain_fio = True
+    if not is_title_contain_fio:
         title = title + ' - ' + author
 
     slug = slugify(title)
 
-    print({
+    return {
         'title': title,
         'year': year,
         'author': author,
         'description': description,
         'slug': slug
-    })
+    }
+print(getText('http://flibustahezeous3.onion/b/588336'))
 #--------------------------------------------------------------------------------------------------------
 
 
@@ -71,13 +80,18 @@ def getImg(bookUrl, text):
     print(response) # <Response [200]>
 
     soup = BeautifulSoup(response.content, 'lxml')
-    img = soup.find('img', alt='Cover image')['src']
-    url = 'http://flibustahezeous3.onion' + img
 
-    response = session.get(url)
-    open(f'images/{text["slug"]}.jpg', 'wb').write(response.content)
+    try:
+        img = soup.find('img', alt='Cover image')['src']
+        url = 'http://flibustahezeous3.onion' + img
+        response = session.get(url)
+        open(f'images/{text["slug"]}.jpg', 'wb').write(response.content)
 
-    return f'{text["slug"]}.jpg'
+        return f'{text["slug"]}.jpg'
+
+    except:
+
+        return f'[ERROR] Not image - {bookUrl}'
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------
@@ -99,11 +113,19 @@ def getBook(url, text):
         response = session.get(url)
         extension = re.search('([\w]+)\)$', link.text).group(0)[:-1]
         open(f'books/{text["slug"]}.{extension}', 'wb').write(response.content)
-    else:
-        link = soup.find('a', string=re.compile('fb2'))
-        url = 'http://flibustahezeous3.onion' + link['href']
-        response = session.get(url)
-        open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
+
+        return f'{text["slug"]}.{extension}'
+
+    link = soup.find('a', string=re.compile('fb2'))
+    url = 'http://flibustahezeous3.onion' + link['href']
+    response = session.get(url)
+    open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
+
+    return f'{text["slug"]}.fb2'
+
+# text = {'slug': 'test'}
+# getBook('http://flibustahezeous3.onion/b/327536', text)
+# getBook('http://flibustahezeous3.onion/b/454204', text)
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------
