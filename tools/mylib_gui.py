@@ -1,11 +1,13 @@
 from tkinter import *
-
+import upload_books as up
 
 
 def show_window():
 
     def upload_books():
         print(urls)
+        up.upload_books(urls)
+
 
     urls = []
 
@@ -17,7 +19,7 @@ def show_window():
             i += 1
 
 
-    def add_url():
+    def add_url(temp):
         urls.append(txt.get())
         txt.delete(0, 'end')
         print_urls()
@@ -33,6 +35,7 @@ def show_window():
     txt = Entry(window, width = 80)
     txt.grid(column=0, row=1)
     txt.focus()
+    txt.bind('<Return>', add_url)
 
     btn = Button(window, text="Add book", command=add_url)
     btn.grid(column=1, row=1)
