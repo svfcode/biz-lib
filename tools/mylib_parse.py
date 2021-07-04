@@ -1,3 +1,4 @@
+from os import pipe
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -55,9 +56,6 @@ def getText(url):
         'description': description,
         'slug': slug
     })
-getText('http://flibustahezeous3.onion/b/441100')
-getText('http://flibustahezeous3.onion/b/453782')
-getText('http://flibustahezeous3.onion/b/454204')
 #--------------------------------------------------------------------------------------------------------
 
 
@@ -83,19 +81,36 @@ def getImg(bookUrl, text):
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------
-# Get image
+# Get book
 #--------------------------------------------------------------------------------------------------------
-def getBook(bookId, text):
+def getBook(url, text):
 
     session = get_tor_session()
 
-    url = f'http://flibustahezeous3.onion/b/{bookId}/fb2'
     print("Getting book from ...", url)
     response = session.get(url)
     print(response) # <Response [200]>
-    open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
 
-    return f'{text["slug"]}.fb2'
+    soup = BeautifulSoup(response.content, 'lxml')
+
+    link = soup.find('a', string=re.compile('скачать'))
+    if link:
+        url = 'http://flibustahezeous3.onion' + link['href']
+        response = session.get(url)
+        extension = re.search('([\w]+)\)$', link.text).group(0)[:-1]
+        open(f'books/{text["slug"]}.{extension}', 'wb').write(response.content)
+    else:
+        link = soup.find('a', string=re.compile('fb2'))
+        url = 'http://flibustahezeous3.onion' + link['href']
+        response = session.get(url)
+        open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
+
+text = {
+    'slug': 'test'
+}
+getBook('http://flibustahezeous3.onion/b/441100', text)
+getBook('http://flibustahezeous3.onion/b/453782', text)
+getBook('http://flibustahezeous3.onion/b/454204', text)
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------
