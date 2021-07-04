@@ -42,7 +42,7 @@ def getText(bookId):
     soup = BeautifulSoup(text, 'lxml')
 
     year = soup.year.text
-    title = soup.find('book-name').text
+    title = soup.find('book-name').text if soup.find('book-name') else soup.find('book-title').text
     description = soup.find('annotation').text.strip()
 
     first_name = soup.find('first-name').text

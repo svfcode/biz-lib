@@ -60,7 +60,7 @@ class AdminBookController extends Controller
         $keywords = $request->get('title') . ', ' . $request->get('author');
         $imgalt = 'Обложка книги ' . $request->get('title');
 
-        $imageName = time().'.'.$request->image->extension();
+        $imageName = $slug .'.'.$request->image->extension();
         $request->image->move(public_path('img/books'), $imageName);
 
         $bookName = $slug . '.' . $request->book->getClientOriginalExtension();

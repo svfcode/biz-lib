@@ -2,11 +2,7 @@ import parse3 as parser
 import addbook
 
 
-urls = [
-    'http://flibustahezeous3.onion/b/165821',
-    'http://flibustahezeous3.onion/b/136049',
-    'http://flibustahezeous3.onion/b/495660'
-]
+urls = []
 
 categories = ['Логика', 'Воспитание детей', 'Питание']
 
