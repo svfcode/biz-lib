@@ -64,7 +64,6 @@ def getText(url):
         'description': description,
         'slug': slug
     }
-print(getText('http://flibustahezeous3.onion/b/588336'))
 #--------------------------------------------------------------------------------------------------------
 
 

@@ -1,12 +1,13 @@
 from tkinter import *
 import upload_books as up
+import time
 
 def show_window():
 
     def upload_books():
-        print(urls)
         up.upload_books(urls)
-
+        time.sleep(1)
+        window.destroy()
 
     urls = []
 
@@ -38,7 +39,7 @@ def show_window():
     window.title("Libteka")
 
     def show_interface():
-        def add_url(temp):
+        def add_url():
             urls.append(txt.get())
             txt.delete(0, 'end')
             print_urls()
