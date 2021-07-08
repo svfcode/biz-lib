@@ -25,9 +25,7 @@ def getText(url):
 
     session = get_tor_session()
 
-    print("Getting info ...", url)
     response = session.get(url)
-    print(response) # <Response [200]>
 
     soup = BeautifulSoup(response.content, 'lxml')
 
@@ -74,9 +72,7 @@ def getImg(bookUrl, text):
 
     session = get_tor_session()
 
-    print("Getting image from ...", bookUrl)
     response = session.get(bookUrl)
-    print(response) # <Response [200]>
 
     soup = BeautifulSoup(response.content, 'lxml')
 
@@ -100,9 +96,7 @@ def getBook(url, text):
 
     session = get_tor_session()
 
-    print("Getting book from ...", url)
     response = session.get(url)
-    print(response) # <Response [200]>
 
     soup = BeautifulSoup(response.content, 'lxml')
 
@@ -121,10 +115,6 @@ def getBook(url, text):
     open(f'books/{text["slug"]}.fb2', 'wb').write(response.content)
 
     return f'{text["slug"]}.fb2'
-
-# text = {'slug': 'test'}
-# getBook('http://flibustahezeous3.onion/b/327536', text)
-# getBook('http://flibustahezeous3.onion/b/454204', text)
 #--------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------

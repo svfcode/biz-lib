@@ -1,2 +1,3 @@
 [ERROR] - url: http://flibustahezeous3.onion/b/588336
-[ERROR] - url: http://flibustahezeous3.onion/b/588336
+[ERROR] - url: http://flibustahezeous3.onion/b/129441
+[ERROR] - url: http://flibustahezeous3.onion/b/383623

@@ -39,7 +39,7 @@ def show_window():
     window.title("Libteka")
 
     def show_interface():
-        def add_url():
+        def add_url(event):
             urls.append(txt.get())
             txt.delete(0, 'end')
             print_urls()
