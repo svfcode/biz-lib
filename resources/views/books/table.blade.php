@@ -2,7 +2,6 @@
 
     @foreach ($books as $book)
 
-
         <div class="book_wrap border shadow rounded p-4 max-w-md m-auto mt-4 hover:border-green-500">
         <a href="/{{ Request::path() }}/{{ $book->slug }}">
             <div class="book_name hover:underline">
@@ -25,7 +24,10 @@
         </a>
         </div>
 
-
     @endforeach
 
+</div>
+
+<div class="my-8">
+    {{ $books->links() }}
 </div>

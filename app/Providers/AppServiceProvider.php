@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
+use Illuminate\Pagination\Paginator;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -30,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
 
         $navigation_cats = DB::select('select title, slug, part_id from categories');
         View::share('navigation_cats', $navigation_cats);
+
+        Paginator::defaultView('vendor.pagination.tailwind');
     }
 }

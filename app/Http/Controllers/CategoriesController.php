@@ -52,8 +52,8 @@ class CategoriesController extends Controller
         }
         $cat = $cat[0];
 
-        $books = DB::select('select * from books where cat_id = ?', [$cat->id]);
-        if(count($books) == 0) {
+        $books = DB::table('books')->where('cat_id', '=', $cat->id)->paginate(10);
+        if($books->total() == 0) {
             return redirect('/');
         }
 
