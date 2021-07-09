@@ -33,6 +33,10 @@ Route::get('/parts/{part}/categories/{category}', [CategoriesController::class, 
 Route::get('/parts/{part}/categories/{category}/{book}', [BookController::class, 'show'])->whereAlphaNumeric('part', 'category', 'book');
 Route::get('/parts/{part}/categories/{category}/{book}/download', [BookController::class, 'download'])->whereAlphaNumeric('part', 'category', 'book');
 
+Route::get('/forauthors', function() {
+    return view('pages.forauthors');
+});
+
 Route::get('/admin/login', [MyauthController::class, 'form']);
 Route::post('/admin/login', [MyauthController::class, 'login']);
 
