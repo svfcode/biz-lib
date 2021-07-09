@@ -28,6 +28,6 @@
 
 </div>
 
-<div class="my-8">
+<div class="my-8 flex justify-center">
     {{ $books->links() }}
 </div>
