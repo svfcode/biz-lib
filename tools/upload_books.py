@@ -4,8 +4,11 @@ import os
 # import os.path
 
 def upload_books(urls):
-    categories = ['Логика', 'Воспитание детей', 'Питание']
-    current_cat = categories[0]
+    categories = [
+        'Логика', 'Воспитание детей', 'Питание', 'Айкидо', 'Дзюдо',
+        'Самбо', 'Бокс', 'Тайский бокс'
+    ]
+    current_cat = categories[7]
 
     addbook.get_auth()
 

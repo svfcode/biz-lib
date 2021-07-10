@@ -69,7 +69,7 @@ class AdminCategoriesController extends Controller
                 $request->get('imgalt'),
             ]);
 
-        return redirect('/admin/categories');
+        return redirect('/admin/parts');
     }
 
     /**
