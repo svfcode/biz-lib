@@ -6,9 +6,9 @@ import os
 def upload_books(urls):
     categories = [
         'Логика', 'Воспитание детей', 'Питание', 'Айкидо', 'Дзюдо',
-        'Самбо', 'Бокс', 'Тайский бокс'
+        'Самбо', 'Бокс', 'Тайский бокс', 'Массаж'
     ]
-    current_cat = categories[7]
+    current_cat = categories[8]
 
     addbook.get_auth()
 
