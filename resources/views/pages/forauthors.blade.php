@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
-@section('title', 'Все книги по разделам')
-@section('description', 'Книги для образования сгруппированные по разделам')
+@section('title', 'Для правообладателей')
+@section('description', 'Удаляем вашу книгу из библиотеки по вашему желанию при первом обращении')
 
 @section('content')
     @include('components.metrika')

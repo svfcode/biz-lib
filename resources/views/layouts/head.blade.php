@@ -13,6 +13,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://libteka.ru/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="https://libteka.ru/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="https://libteka.ru/favicon-16x16.png">
+    <link rel="icon" href="https://example.com/favicon.svg" type="image/svg+xml">
     <link rel="manifest" href="https://libteka.ru/site.webmanifest">
     <link rel="mask-icon" href="https://libteka.ru/safari-pinned-tab.svg" color="#5bbad5">
 
