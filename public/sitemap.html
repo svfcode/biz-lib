@@ -1,1 +1,122 @@
-<h1>hi</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="лучшие книги">
+    <meta name="description" content="Удаляем вашу книгу из библиотеки по вашему желанию при первом обращении">
+        <title>Libteka.ru | Для правообладателей</title>
+
+    <link rel="icon" href="https://libteka.ru/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://libteka.ru/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://libteka.ru/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://libteka.ru/favicon-16x16.png">
+    <link rel="icon" href="https://example.com/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="https://libteka.ru/site.webmanifest">
+    <link rel="mask-icon" href="https://libteka.ru/safari-pinned-tab.svg" color="#5bbad5">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link href="/css/app.css?v=2" rel="stylesheet">
+</head>
+<body class="flex flex-col h-screen">
+
+<header class="header">
+    <nav class="flex bg-gray-100 shadow-lg">
+        <div class="nav_logo p-2">
+            <h1><a href="/" class="font-bold text-2xl">Libteka</a></h1>
+        </div>
+        <div id="nav_wrap" class="nav_wrap flex p-2 max-w-xs m-auto">
+            <div id="nav_part" class="nav_parts" v-on:click="togglePartMenu">
+                <div class="nav_part_select relative cursor-pointer flex hover:text-purple-700">
+                    <span class="pl-2">Разделы</span>
+                    <i v-if="!isPartSelect" class="material-icons">arrow_drop_down</i>
+                    <i v-if="isPartSelect" class="material-icons">arrow_drop_up</i>
+                    <div v-if="isPartSelect" class="nav_part_menu absolute bg-gray-100 shadow-lg w-full top-8 p-2 flex flex-col">
+                                                    <a href="/parts/family" class="text-black hover:text-purple-700">Семья</a>
+                                                    <a href="/parts/science" class="text-black hover:text-purple-700">Наука</a>
+                                                    <a href="/parts/health" class="text-black hover:text-purple-700">Здоровье</a>
+                                            </div>
+                </div>
+            </div>
+            <div class="nav_categories" v-on:click="toggleCategoryMenu">
+                <div class="nav_categories_select cursor-pointer pl-4 flex relative hover:text-purple-700">
+                    <span class="pl-2">Категории</span>
+                    <i v-if="!isCategorySelect" class="material-icons">arrow_drop_down</i>
+                    <i v-if="isCategorySelect" class="material-icons">arrow_drop_up</i>
+                    <div v-if="isCategorySelect" class="nav_part_menu absolute bg-gray-100 shadow-lg w-full top-8 p-2 flex flex-col">
+                                                    <span class="text-gray-400">Семья</span>
+                                                                                                                                                            <a href="/parts/family/categories/upbringing" class="text-black hover:text-purple-700">Воспитание детей</a>
+                                                                                                                                                                            <span class="text-gray-400">Наука</span>
+                                                                                                <a href="/parts/science/categories/logica" class="text-black hover:text-purple-700">Логика</a>
+                                                                                                                                                                                                                                        <span class="text-gray-400">Здоровье</span>
+                                                                                                                                                                                                                        <a href="/parts/health/categories/nutrition" class="text-black hover:text-purple-700">Питание</a>
+                                                                                                        </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </nav>
+
+    <script>
+        var app = new Vue({
+            el: '#nav_wrap',
+            data: {
+                isPartSelect: false,
+                isCategorySelect: false,
+            },
+            methods: {
+                togglePartMenu: function() {
+                    this.isPartSelect ? this.closeAllMenu() : (this.closeAllMenu(), this.isPartSelect = true)
+                },
+                toggleCategoryMenu: function() {
+                    this.isCategorySelect ? this.closeAllMenu() : (this.closeAllMenu(), this.isCategorySelect = true)
+                },
+                closeAllMenu: function() {
+                    this.isPartSelect = false
+                    this.isCategorySelect = false
+                }
+            }
+        })
+    </script>
+</header>
+
+
+<main class="content flex-grow">
+        <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(82200391, "init", {
+             clickmap:true,
+             trackLinks:true,
+             accurateTrackBounce:true
+        });
+     </script>
+     <noscript><div><img src="https://mc.yandex.ru/watch/82200391" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+     <!-- /Yandex.Metrika counter -->
+
+    <div class="md:container md:mx-auto px-4 mt-8">
+        <h1 class="text-2xl text-center">Карта сайта</h1>
+
+
+    </div>
+</main>
+
+<div class="footer flex bg-gray-100 shadow-lg p-2 flex justify-around">
+    <div class="footer_wrap">
+        <a href="/forauthors" class="text-gray-400">Для правообладателей</a>
+        <a href="/sitemap.html" class="text-gray-400 ml-4">Карта сайта</a>
+        
+    </div>
+    <a href="http://klimovcode.online" class="text-gray-200 hover:text-gray-700">KlimovCode</a>
+</div>
+
+</body>
+</html>

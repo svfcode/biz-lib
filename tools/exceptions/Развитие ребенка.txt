@@ -1,53 +1,41 @@
-[ERROR] - url: http://flibustahezeous3.onion/b/184806
-[ERROR] - url: http://flibustahezeous3.onion/b/562175
-[ERROR] - url: http://flibustahezeous3.onion/b/525730
-[ERROR] - url: http://flibustahezeous3.onion/b/397848
-[ERROR] - url: http://flibustahezeous3.onion/b/349578
-[ERROR] - url: http://flibustahezeous3.onion/b/184690
-[ERROR] - url: http://flibustahezeous3.onion/b/565397
-[ERROR] - url: http://flibustahezeous3.onion/b/319658
-[ERROR] - url: http://flibustahezeous3.onion/b/184177
-[ERROR] - url: http://flibustahezeous3.onion/b/183672
-[ERROR] - url: http://flibustahezeous3.onion/b/565398
-[ERROR] - url: http://flibustahezeous3.onion/b/318851
-[ERROR] - url: http://flibustahezeous3.onion/b/318310
-[ERROR] - url: http://flibustahezeous3.onion/b/107629
-[ERROR] - url: http://flibustahezeous3.onion/b/153567
-[ERROR] - url: http://flibustahezeous3.onion/b/183616
-[ERROR] - url: http://flibustahezeous3.onion/b/183672
-[ERROR] - url: http://flibustahezeous3.onion/b/184177
-[ERROR] - url: http://flibustahezeous3.onion/b/184200
-[ERROR] - url: http://flibustahezeous3.onion/b/184200
-[ERROR] - url: http://flibustahezeous3.onion/b/187506
-[ERROR] - url: http://flibustahezeous3.onion/b/242467
-[ERROR] - url: http://flibustahezeous3.onion/b/319479
-[ERROR] - url: http://flibustahezeous3.onion/b/335630
-[ERROR] - url: http://flibustahezeous3.onion/b/336111
-[ERROR] - url: http://flibustahezeous3.onion/b/336179
-[ERROR] - url: http://flibustahezeous3.onion/b/336184
-[ERROR] - url: http://flibustahezeous3.onion/b/336346
-[ERROR] - url: http://flibustahezeous3.onion/b/336347
-[ERROR] - url: http://flibustahezeous3.onion/b/336350
-[ERROR] - url: http://flibustahezeous3.onion/b/336349
-[ERROR] - url: http://flibustahezeous3.onion/b/336610
-[ERROR] - url: http://flibustahezeous3.onion/b/336984
-[ERROR] - url: http://flibustahezeous3.onion/b/337300
-[ERROR] - url: http://flibustahezeous3.onion/b/337425
-[ERROR] - url: http://flibustahezeous3.onion/b/337519
-[ERROR] - url: http://flibustahezeous3.onion/b/337548
-[ERROR] - url: http://flibustahezeous3.onion/b/337553
-[ERROR] - url: http://flibustahezeous3.onion/b/337625
-[ERROR] - url: http://flibustahezeous3.onion/b/337925
-[ERROR] - url: http://flibustahezeous3.onion/b/338747
-[ERROR] - url: http://flibustahezeous3.onion/b/341155
-[ERROR] - url: http://flibustahezeous3.onion/b/341158
-[ERROR] - url: http://flibustahezeous3.onion/b/341172
-[ERROR] - url: http://flibustahezeous3.onion/b/341361
-[ERROR] - url: http://flibustahezeous3.onion/b/341417
-[ERROR] - url: http://flibustahezeous3.onion/b/341430
-[ERROR] - url: http://flibustahezeous3.onion/b/341483
-[ERROR] - url: http://flibustahezeous3.onion/b/341501
-[ERROR] - url: http://flibustahezeous3.onion/b/341510
-[ERROR] - url: http://flibustahezeous3.onion/b/341600
-[ERROR] - url: http://flibustahezeous3.onion/b/341626
-[ERROR] - url: http://flibustahezeous3.onion/b/342973
+http://flibustahezeous3.onion/b/337925
+http://flibustahezeous3.onion/b/337625
+http://flibustahezeous3.onion/b/337553
+http://flibustahezeous3.onion/b/337548
+http://flibustahezeous3.onion/b/337519
+http://flibustahezeous3.onion/b/337425
+http://flibustahezeous3.onion/b/337300
+http://flibustahezeous3.onion/b/336984
+http://flibustahezeous3.onion/b/336610
+http://flibustahezeous3.onion/b/336349
+http://flibustahezeous3.onion/b/336350
+http://flibustahezeous3.onion/b/336347
+http://flibustahezeous3.onion/b/336346
+http://flibustahezeous3.onion/b/336184
+http://flibustahezeous3.onion/b/336179
+http://flibustahezeous3.onion/b/336111
+http://flibustahezeous3.onion/b/335630
+http://flibustahezeous3.onion/b/319479
+http://flibustahezeous3.onion/b/242467
+http://flibustahezeous3.onion/b/187506
+http://flibustahezeous3.onion/b/184200
+http://flibustahezeous3.onion/b/184200
+http://flibustahezeous3.onion/b/184177
+http://flibustahezeous3.onion/b/183672
+http://flibustahezeous3.onion/b/183616
+http://flibustahezeous3.onion/b/153567
+http://flibustahezeous3.onion/b/107629
+http://flibustahezeous3.onion/b/318310
+http://flibustahezeous3.onion/b/318851
+http://flibustahezeous3.onion/b/565398
+http://flibustahezeous3.onion/b/183672
+http://flibustahezeous3.onion/b/184177
+http://flibustahezeous3.onion/b/319658
+http://flibustahezeous3.onion/b/565397
+http://flibustahezeous3.onion/b/184690
+http://flibustahezeous3.onion/b/349578
+http://flibustahezeous3.onion/b/397848
+http://flibustahezeous3.onion/b/525730
+http://flibustahezeous3.onion/b/562175
+http://flibustahezeous3.onion/b/184806
+

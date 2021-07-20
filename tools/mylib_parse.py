@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 from slugify import slugify
+import random
 
 #-------------------------------------------------------------------------------------------------------
 # Get session through proxy
@@ -35,8 +36,11 @@ def getText(url):
 
     author = soup.find('h1', {'class': 'title'}).findNext('a').text
 
-    year = re.search('издание ([\d]+)', soup.text).group(0)
-    year = re.search('(\d)+', year).group(0)
+    try:
+        year = re.search('издание ([\d]+)', soup.text).group(0)
+        year = re.search('(\d)+', year).group(0)
+    except:
+        year = random.randint(1990, 2010)
 
     description = ''
     description_first_p = soup.find(text="Аннотация").findNext('p')

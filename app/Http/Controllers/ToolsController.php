@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 class ToolsController extends Controller
 {
     public function createSitemapHtml() {
-        $page = view('pages/sitemaphtml');
-        dd($page);
+
+        
+
+        $page = view('pages/sitemaphtml')->render();
 
         $file_path = public_path('sitemap.html');
 
@@ -17,6 +19,6 @@ class ToolsController extends Controller
         fwrite($file, $page);
         fclose($file);
 
-        return $page;
+        return 'sitemap html created';
     }
 }
