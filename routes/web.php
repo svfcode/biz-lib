@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\SitemapGenerator;
 use Psr\Http\Message\UriInterface;
 
+use App\Http\Controllers\ToolsController;
+
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\AdminPartController;
 
@@ -57,3 +59,5 @@ Route::get('/admin/sitemap', function() {
 
     return 'sitemap created';
 })->middleware('myauth');
+
+Route::get('/admin/sitemaphtml', [ToolsController::class, 'createSitemapHtml'])->middleware('myauth');

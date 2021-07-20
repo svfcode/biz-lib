@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', "Книги о $cat->title")
+@section('title', "Все книги из раздела $cat->title")
 @section('keywords', "$cat->title, книги, скачать")
 @section('description', "Книги по теме $cat->title")
 
