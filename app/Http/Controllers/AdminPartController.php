@@ -17,8 +17,9 @@ class AdminPartController extends Controller
     public function index()
     {
         $parts = DB::table('parts')->get();
+        $books_count = DB::table('books')->count();
 
-        return view('admin.parts.index', compact('parts'));
+        return view('admin.parts.index', compact('parts', 'books_count'));
     }
 
     /**

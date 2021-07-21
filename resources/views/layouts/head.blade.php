@@ -21,7 +21,7 @@
     <meta name="theme-color" content="#ffffff">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    <link href="/css/app.css?v=2" rel="stylesheet">
+    <link href="/css/app.css?v=3" rel="stylesheet">
     <link href="/css/accordion.css" rel="stylesheet">
 </head>
 <body class="flex flex-col h-screen">
